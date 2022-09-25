@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 
 import menuData from "../data/menu"
 
-import { MenuContext } from "../context/menuContext"
+import { MenuContext } from "../context/MenuContext"
 
 function MenuList({ isMenuOpen }) {
   const { setIsMenuOpen } = useContext(MenuContext)
