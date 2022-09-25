@@ -19,6 +19,7 @@ function PortfolioCard({ id, imageUrl, type, title, handleClick }) {
         <Image
           src={imageUrl}
           layout="fill"
+          alt="karna - next js personal portfolio"
           objectFit="cover"
           className="absolute rounded-md portfolio-card-image"
         />

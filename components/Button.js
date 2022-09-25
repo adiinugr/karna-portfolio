@@ -32,7 +32,7 @@ function Button({ type, children, text, target, className }) {
     )
   } else if (type == "external") {
     return (
-      <a href={target} target="_blank">
+      <a href={target} target="_blank" rel="noreferrer">
         <ButtonComponent className={className} text={text}>
           {children}
         </ButtonComponent>

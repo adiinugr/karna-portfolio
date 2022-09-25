@@ -61,6 +61,7 @@ function Contact() {
             <a
               href="https://twitter.com"
               target="_blank"
+              rel="noreferrer"
               className="bg-primary p-2 mr-2 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
             >
               <FiTwitter size={16} />
@@ -68,6 +69,7 @@ function Contact() {
             <a
               href="https://facebook.com"
               target="_blank"
+              rel="noreferrer"
               className="bg-primary p-2 mr-2 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
             >
               <FiFacebook size={16} />
@@ -75,6 +77,7 @@ function Contact() {
             <a
               href="https://linkedin.com"
               target="_blank"
+              rel="noreferrer"
               className="bg-primary p-2  rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
             >
               <FiLinkedin size={16} />

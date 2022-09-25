@@ -80,6 +80,7 @@ function About() {
             <Image
               src="/images/men-2.jpg"
               layout="fill"
+              alt="karna - next js personal portfolio"
               className="absolute rounded-full flip-card-inner"
               objectFit="cover"
             />

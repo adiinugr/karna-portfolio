@@ -14,6 +14,7 @@ function BlogCard({ id, imageUrl, title, content }) {
         <Image
           src={imageUrl}
           layout="fill"
+          alt="karna - next js personal portfolio"
           objectFit="cover"
           className="absolute rounded-md cursor-pointer hover:scale-110 transition ease-in-out duration-300"
         />

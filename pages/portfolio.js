@@ -110,6 +110,7 @@ function Portfolio() {
                     <Image
                       src={image.url}
                       layout="fill"
+                      alt="karna - next js personal portfolio"
                       objectFit="cover"
                       className="absolute "
                     />

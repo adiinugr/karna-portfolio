@@ -29,6 +29,7 @@ export default function Home() {
               src="/images/men-1.png"
               layout="fill"
               objectFit="cover"
+              alt="karna - next js personal portfolio"
               className="hover:scale-110 transition ease-in-out duration-300"
             />
           </div>
@@ -70,6 +71,7 @@ export default function Home() {
               <a
                 href="https://www.twitter.com"
                 target="_blank"
+                rel="noreferrer"
                 className="bg-primary p-2 m-1 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
               >
                 <FiTwitter size={16} />
@@ -77,6 +79,7 @@ export default function Home() {
               <a
                 href="https://www.facebook.com"
                 target="_blank"
+                rel="noreferrer"
                 className="bg-primary p-2 m-1 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
               >
                 <FiFacebook size={16} />
@@ -84,6 +87,7 @@ export default function Home() {
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
+                rel="noreferrer"
                 className="bg-primary p-2 m-1 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
               >
                 <FiLinkedin size={16} />
