@@ -21,6 +21,8 @@ const CustomButton = React.forwardRef(
   }
 )
 
+CustomButton.displayName = "CustomButton"
+
 function Button({ type, children, text, target, className }) {
   if (type == "internal") {
     return (
