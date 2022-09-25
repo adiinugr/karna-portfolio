@@ -37,6 +37,7 @@ function Blog() {
               <Image
                 src={blog.imageUrl}
                 layout="fill"
+                alt="karna-portfolio"
                 className="absolute rounded-md"
                 objectFit="cover"
               />

@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 
-const ButtonComponent = React.forwardRef(
+const CustomButton = React.forwardRef(
   ({ children, text, onClick, href, className }, ref) => {
     return (
       <div
@@ -25,25 +25,25 @@ function Button({ type, children, text, target, className }) {
   if (type == "internal") {
     return (
       <Link href={target} passHref>
-        <ButtonComponent className={className} text={text}>
+        <CustomButton className={className} text={text}>
           {children}
-        </ButtonComponent>
+        </CustomButton>
       </Link>
     )
   } else if (type == "external") {
     return (
       <a href={target} target="_blank" rel="noreferrer">
-        <ButtonComponent className={className} text={text}>
+        <CustomButton className={className} text={text}>
           {children}
-        </ButtonComponent>
+        </CustomButton>
       </a>
     )
   } else {
     return (
       <button type="submit">
-        <ButtonComponent className={className} text={text}>
+        <CustomButton className={className} text={text}>
           {children}
-        </ButtonComponent>
+        </CustomButton>
       </button>
     )
   }
