@@ -15,7 +15,7 @@ import CustomHead from "../components/CustomHead"
 
 import portfolioData from "../data/portfolio"
 
-import { MenuContext } from "../context/menuContext"
+import { MenuContext } from "../context/MenuContext"
 
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"

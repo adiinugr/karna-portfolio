@@ -1,6 +1,6 @@
 import Transition from "../components/Transition"
 
-import { Provider } from "../context/menuContext"
+import { Provider } from "../context/MenuContext"
 
 import "../styles/globals.css"
 

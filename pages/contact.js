@@ -10,7 +10,7 @@ import MenuButton from "../components/MenuButton"
 import MenuList from "../components/MenuList"
 import CustomHead from "../components/CustomHead"
 
-import { MenuContext } from "../context/menuContext"
+import { MenuContext } from "../context/MenuContext"
 
 const schema = yup
   .object({

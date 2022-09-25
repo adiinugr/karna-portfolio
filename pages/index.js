@@ -3,7 +3,7 @@ import { useContext } from "react"
 import { FiArrowRight, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi"
 import Typed from "react-typed"
 
-import { MenuContext } from "../context/menuContext"
+import { MenuContext } from "../context/MenuContext"
 
 import Button from "../components/Button"
 import MenuButton from "../components/MenuButton"

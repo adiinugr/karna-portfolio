@@ -17,7 +17,7 @@ import educationData from "../data/education"
 import experiencesData from "../data/experiences"
 import CustomHead from "../components/CustomHead"
 
-import { MenuContext } from "../context/menuContext"
+import { MenuContext } from "../context/MenuContext"
 
 function About() {
   const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext)

@@ -7,7 +7,7 @@ import CustomHead from "../../components/CustomHead"
 
 import blogsData from "../../data/blogs"
 
-import { MenuContext } from "../../context/menuContext"
+import { MenuContext } from "../../context/MenuContext"
 
 function Blogs() {
   const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext)
