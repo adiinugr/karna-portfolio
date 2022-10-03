@@ -5,14 +5,14 @@ const CustomButton = React.forwardRef(
   ({ children, text, onClick, href, className }, ref) => {
     return (
       <div
-        href={href}
+        // href={href}
         onClick={onClick}
         ref={ref}
-        className={`relative button-primary bg-primary text-white pl-6 pt-3 pb-3 pr-[4.5rem] font-medium uppercase inline-flex cursor-pointer ${className}`}
+        className={`relative button-primary bg-skin-button-bg-base text-skin-button-base pl-6 pt-3 pb-3 pr-[4.5rem] font-medium uppercase inline-flex cursor-pointer ${className}`}
       >
         {text}
         <div
-          className={`absolute button-icon top-0 right-0 h-full w-12 bg-white text-primary flex justify-center items-center transition ease-in-out duration-300 ${className}`}
+          className={`absolute button-icon top-0 right-0 h-full w-12 bg-skin-button-bg-inverted text-skin-button-inverted flex justify-center items-center transition ease-in-out duration-300 ${className}`}
         >
           {children}
         </div>

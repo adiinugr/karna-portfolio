@@ -14,7 +14,7 @@ function PortfolioCard({ id, imageUrl, type, title, handleClick }) {
   }
 
   return (
-    <div className="bg-gradient-to-b from-shade to-primary p-5 border-4 border-primary rounded-lg">
+    <div className="bg-skin-gray text-skin-base p-5 rounded-lg">
       <div className="relative w-full h-48" onClick={() => handleClick(id)}>
         <Image
           src={imageUrl}
@@ -23,14 +23,14 @@ function PortfolioCard({ id, imageUrl, type, title, handleClick }) {
           objectFit="cover"
           className="absolute rounded-md portfolio-card-image"
         />
-        <div className="absolute top-0 left-0 h-full w-full portfolio-card-overlay cursor-pointer transition ease-in-out duration-300" />
-        <div className="absolute bottom-0 left-0 p-2 bg-gray/50 rounded-md">
+        <div className="absolute top-0 left-0 h-full w-full cursor-pointer hover:bg-skin-gray/20 transition ease-in-out duration-300" />
+        <div className="absolute bottom-0 left-0 p-2 bg-skin-gray/50 rounded-md">
           <IconComponent />
         </div>
       </div>
       <p className="mt-3 uppercase ">{type}</p>
       <p
-        className="text-xl font-semibold cursor-pointer hover:text-dark transition ease-in-out duration-300"
+        className="text-xl font-semibold cursor-pointer"
         onClick={() => handleClick(id)}
       >
         {title}

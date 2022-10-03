@@ -32,8 +32,8 @@ function Transition({ children }) {
   }
 
   return (
-    <div className="overflow-hidden bg-dark">
-      <AnimatePresence initial={false} exitBeforeEnter>
+    <div className="overflow-hidden bg-skin-gray">
+      <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={asPath}
           variants={variants}

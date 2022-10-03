@@ -6,19 +6,24 @@ import ReactPlayer from "react-player"
 import Slider from "react-slick"
 import { SyncLoader } from "react-spinners"
 
-import PortfolioCard from "../components/PortfolioCard"
-import Title from "../components/Title"
-import Button from "../components/Button"
-import MenuButton from "../components/MenuButton"
-import MenuList from "../components/MenuList"
-import CustomHead from "../components/CustomHead"
+// React Context
+import { MenuContext } from "/context/MenuContext"
 
-import portfolioData from "../data/portfolio"
+// Costom Component
+import PortfolioCard from "/components/card/PortfolioCard"
+import Title from "/components/element/Title"
+import Button from "/components/button/Button"
+import MenuButton from "/components/menu/MenuButton"
+import MenuList from "/components/menu/MenuList"
+import CustomHead from "/components/meta/CustomHead"
 
-import { MenuContext } from "../context/MenuContext"
+// Dummy Data
+import portfolioData from "/data/portfolio"
 
+// React Slick CSS
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import { personalLightMenuData } from "data/menu"
 
 Modal.setAppElement("#__next")
 
@@ -51,19 +56,26 @@ function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-dark px-8 py-28 lg:px-32 lg:py-20 text-white"
+      className="theme-light bg-skin-base px-8 py-28 lg:px-32 lg:py-20 text-skin-base"
     >
+      {/* Start Next.js Head -> meta information */}
       <CustomHead />
+      {/* End Next.js Head */}
 
+      {/* Start Menu Button */}
       <MenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <MenuList isMenuOpen={isMenuOpen} />
+      {/* End Menu Button */}
+
+      {/* Start Menu List */}
+      <MenuList isMenuOpen={isMenuOpen} menuData={personalLightMenuData} />
+      {/* End Menu List */}
 
       {portfolioData.length === 0 ? (
         <SyncLoader color="#36d7b7" size={12} className="text-center" />
       ) : (
         <>
           <Title leftText="my" rightText="portfolio" />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
             {portfolioData.map((portfolio) => (
               <PortfolioCard
                 key={portfolio.id}
@@ -78,21 +90,22 @@ function Portfolio() {
         </>
       )}
 
+      {/* Start React Modal */}
       <Modal
         ariaHideApp={false}
         closeTimeoutMS={300}
-        className="Modal"
-        overlayClassName="Overlay"
+        className="theme-light absolute inset-8 md:inset-20 p-6 lg:p-10 bg-skin-gray outline-none rounded-md"
+        overlayClassName="fixed inset-0 bg-skin-base/75 z-40"
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
       >
         <FiX
-          className="absolute -top-5 -right-5 lg:top-3 lg:right-3 bg-primary lg:bg-gray/30 p-2 border-2 border-white z-40 rounded-full text-white hover:text-dark cursor-pointer transition ease-in-out duration-300"
-          size={40}
+          className="absolute -top-5 -right-5 lg:top-5 lg:right-5 p-2 border-2 z-40 rounded-full text-skin-base hover:scale-110 cursor-pointer transition ease-in-out duration-300"
+          size={45}
           onClick={() => setIsModalOpen(false)}
         />
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-10 h-full w-full p-6 lg:p-10 overflow-auto">
-          <div className="relative h-full w-full lg:w-1/2">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-10 h-full w-full overflow-auto">
+          <div className="relative h-full w-full md:w-1/2">
             {portfolio?.type === "Video" ? (
               <ReactPlayer
                 className="react-player"
@@ -105,7 +118,7 @@ function Portfolio() {
                 {portfolio?.imageData.map((image) => (
                   <div
                     key={image.id}
-                    className="relative h-[200px] lg:h-[310px] rounded-md overflow-hidden"
+                    className="relative h-[200px] md:h-[310px] rounded-md overflow-hidden"
                   >
                     <Image
                       src={image.url}
@@ -119,7 +132,7 @@ function Portfolio() {
               </Slider>
             )}
           </div>
-          <div className="w-full lg:w-1/2 text-white">
+          <div className="w-full md:w-1/2 text-skin-base">
             <p className="font-bold text-xl lg:text-4xl mb-4">
               {portfolio?.title}
             </p>
@@ -146,6 +159,7 @@ function Portfolio() {
           </div>
         </div>
       </Modal>
+      {/* End React Modal */}
     </section>
   )
 }

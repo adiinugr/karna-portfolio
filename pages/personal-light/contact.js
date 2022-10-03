@@ -1,17 +1,24 @@
 import React, { useContext } from "react"
-import { FiFacebook, FiLinkedin, FiSend, FiTwitter } from "react-icons/fi"
+import { FiSend } from "react-icons/fi"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
-import Button from "../components/Button"
-import Title from "../components/Title"
-import MenuButton from "../components/MenuButton"
-import MenuList from "../components/MenuList"
-import CustomHead from "../components/CustomHead"
+// React Context
+import { MenuContext } from "/context/MenuContext"
 
-import { MenuContext } from "../context/MenuContext"
+// Costom Component
+import Button from "/components/button/Button"
+import Title from "/components/element/Title"
+import MenuButton from "/components/menu/MenuButton"
+import MenuList from "/components/menu/MenuList"
+import CustomHead from "/components/meta/CustomHead"
 
+// Dummy Data
+import socialMediaData from "data/socialMedia"
+import { personalLightMenuData } from "data/menu"
+
+// This schema is for validation
 const schema = yup
   .object({
     firstName: yup.string().required("First Name is Required"),
@@ -32,14 +39,22 @@ function Contact() {
     resolver: yupResolver(schema)
   })
 
+  // This function is trigered when user click submit button. You can send data to backend, etc.
   const onSubmit = (data) => console.log(data)
 
   return (
-    <section className="bg-dark min-h-screen px-8 py-28 lg:px-32 lg:py-20 text-white">
+    <section className="theme-light bg-skin-base min-h-screen px-8 py-28 lg:px-32 lg:py-20 text-skin-base">
+      {/* Start Next.js Head -> meta information */}
       <CustomHead />
+      {/* End Next.js Head */}
 
+      {/* Start Menu Button */}
       <MenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <MenuList isMenuOpen={isMenuOpen} />
+      {/* End Menu Button */}
+
+      {/* Start Menu List */}
+      <MenuList isMenuOpen={isMenuOpen} menuData={personalLightMenuData} />
+      {/* End Menu List */}
 
       <Title leftText="contact" rightText="me" />
       <div className="flex flex-col lg:flex-row gap-16">
@@ -57,31 +72,18 @@ function Contact() {
               Email: <span className="font-semibold">mail@mail.com</span>
             </p>
           </div>
-          <div className="text-white flex">
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-primary p-2 mr-2 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
-            >
-              <FiTwitter size={16} />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-primary p-2 mr-2 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
-            >
-              <FiFacebook size={16} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-primary p-2  rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
-            >
-              <FiLinkedin size={16} />
-            </a>
+          <div className="text-skin-base flex">
+            {socialMediaData.map((socialMedia) => (
+              <a
+                key={socialMedia.id}
+                href={socialMedia.url}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-skin-button-bg-base text-skin-button-base p-2 mr-2 rounded-md cursor-pointer hover:bg-skin-button-bg-inverted hover:text-skin-button-inverted transition ease-in-out duration-300"
+              >
+                {socialMedia.icon}
+              </a>
+            ))}
           </div>
         </div>
         <div className="w-full lg:w-3/5">
@@ -94,7 +96,7 @@ function Contact() {
                     name="firstName"
                     id="firstName"
                     placeholder="First Name"
-                    className="w-full rounded-md bg-gray py-2 px-6 text-white outline-none focus:border-primary focus:border"
+                    className="w-full rounded-md bg-skin-gray py-2 px-6 text-skin-base outline-none focus:border-skin-base focus:border-2"
                     {...register("firstName")}
                   />
                   {errors.firstName && (
@@ -111,7 +113,7 @@ function Contact() {
                     name="lastName"
                     id="lastName"
                     placeholder="Last Name"
-                    className="w-full rounded-md bg-gray py-2 px-6 text-white outline-none focus:border-primary focus:border"
+                    className="w-full rounded-md bg-skin-gray py-2 px-6 text-skin-base outline-none focus:border-skin-base focus:border-2"
                     {...register("lastName")}
                   />{" "}
                   {errors.lastName && (
@@ -128,7 +130,7 @@ function Contact() {
                 name="subject"
                 id="subject"
                 placeholder="Subject"
-                className="w-full appearance-none rounded-md bg-gray py-2 px-6 text-white outline-none focus:border-primary focus:border"
+                className="w-full appearance-none rounded-md bg-skin-gray py-2 px-6 text-skin-base outline-none focus:border-skin-base focus:border-2"
                 {...register("subject")}
               />{" "}
               {errors.subject && (
@@ -143,7 +145,7 @@ function Contact() {
                 id="message"
                 placeholder="Your Message"
                 rows={5}
-                className="w-full appearance-none rounded-md bg-gray py-2 px-6 text-white outline-none focus:border-primary focus:border"
+                className="w-full appearance-none rounded-md bg-skin-gray py-2 px-6 text-skin-base outline-none focus:border-skin-base focus:border-2"
                 {...register("message")}
               />{" "}
               {errors.message && (

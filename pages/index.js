@@ -1,101 +1,110 @@
+import Link from "next/link"
 import Image from "next/image"
-import { useContext } from "react"
-import { FiArrowRight, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi"
-import Typed from "react-typed"
+import { Link as ScrollLink } from "react-scroll"
+import { AnimatePresence, motion } from "framer-motion"
 
-import { MenuContext } from "../context/MenuContext"
+// Custom Component
+import CustomHead from "components/meta/CustomHead"
 
-import Button from "../components/Button"
-import MenuButton from "../components/MenuButton"
-import MenuList from "../components/MenuList"
-import CustomHead from "../components/CustomHead"
+// Dummy Data
+import demosData from "data/demos"
 
-export default function Home() {
-  const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext)
-
+function Home() {
   return (
-    <section className="bg-dark h-screen">
+    <div className="bg-teal-50">
+      {/* Start Next.js Head -> meta information */}
       <CustomHead />
+      {/* End Next.js Head */}
 
-      <MenuButton isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <MenuList isMenuOpen={isMenuOpen} />
-
-      <div className="hidden lg:block bg-primary w-72 h-full shape absolute"></div>
-      <div className="absolute px-8 lg:px-32 lg:py-32 flex justify-center items-center w-full h-full">
-        <div className="hidden lg:block w-1/3 relative h-full mr-12">
-          <div className="absolute top-1/2 -left-4 transform -translate-y-44 w-64 h-80 bg-dark"></div>
-          <div className="absolute top-1/2 transform -translate-y-1/2 tra w-64 h-80">
-            <Image
-              src="/images/men-1.png"
-              layout="fill"
-              objectFit="cover"
-              alt="karna - next js personal portfolio"
-              className="hover:scale-110 transition ease-in-out duration-300"
-            />
-          </div>
-        </div>
-        <div className="w-full lg:w-2/3">
-          <div className="text-white">
-            <Typed
-              showCursor={false}
-              className="font-semibold text-[34px] lg:text-[38px]"
-              strings={["HI, I'M "]}
-              typeSpeed={50}
-            />{" "}
-            <Typed
-              className="font-semibold text-[34px] lg:text-[38px] text-primary"
-              strings={["NEHAN"]}
-              typeSpeed={50}
-              startDelay={500}
-            />
-            <p className="font-semibold text-[34px] lg:text-[38px] mb-6">
-              WEB DEVELOPER
-            </p>
-            <p>
-              Experienced web developer with a strong background in developing
-              award-winning applications for a diverse clientele. 5+ years of
-              industry experience includes programming, debugging, and
-              wireframes.
-            </p>
-          </div>
-          <div className="flex flex-col-reverse lg:flex-row justify-between lg:items-center mt-8">
-            <Button
-              type="internal"
-              target="/about"
-              text="about me"
-              className="self-start lg:self-auto"
-            >
-              <FiArrowRight size={24} />
-            </Button>
-            <div className="bg-gray bg-opacity-20 p-2 rounded-md text-white flex self-start lg:self-auto mb-8 lg:mb-0">
-              <a
-                href="https://www.twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="bg-primary p-2 m-1 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
-              >
-                <FiTwitter size={16} />
-              </a>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="bg-primary p-2 m-1 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
-              >
-                <FiFacebook size={16} />
-              </a>
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="bg-primary p-2 m-1 rounded-md cursor-pointer hover:bg-white hover:text-primary transition ease-in-out duration-300"
-              >
-                <FiLinkedin size={16} />
-              </a>
+      {/* START HERO */}
+      <section className="md:h-screen px-8 py-16 sm:px-16 lg:px-32 lg:py-20 flex flex-row sm:flex-col-reverse md:flex-row items-center overflow-hidden">
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, y: "-50%" }}
+            animate={{ opacity: 1, y: "0%" }}
+            transition={{ type: "spring", stiffness: "100", duration: "0.76" }}
+            className="w-full md:w-1/2"
+          >
+            <div className="flex items-center mb-6">
+              <Image
+                src="/logo.png"
+                height={70}
+                width={70}
+                className="rounded-full"
+              />
+              <h1 className="font-medium text-4xl ml-4">Karna</h1>
             </div>
-          </div>
+            <h2 className="text-xl mb-6">
+              Next.js portfolio with Tailwind CSS. Clean code and Responsive for
+              every device.
+            </h2>
+
+            <ScrollLink to="demos" smooth={true} duration={500}>
+              <button className="bg-teal-600 text-white px-5 py-3 rounded-md uppercase text-lg hover:bg-teal-500 transition ease-in-out duration-200">
+                View Demos
+              </button>
+            </ScrollLink>
+          </motion.div>
+        </AnimatePresence>
+
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0, y: "-50%" }}
+            animate={{ opacity: 1, y: "0%" }}
+            transition={{ type: "spring", stiffness: "100", duration: "0.76" }}
+            className="hidden sm:block"
+          >
+            <Image
+              src="/template/personal-dark.png"
+              width={500}
+              height={350}
+              objectFit="contain"
+              className="hover:scale-95 transition ease-in-out duration-200"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </section>
+      {/* END HERO */}
+
+      {/* START DEMOS */}
+      <section id="demos" className="px-8 pb-16 lg:px-32 lg:py-20">
+        <h1 className="font-semibold text-4xl text-center text-teal-900 mb-2">
+          DEMOS
+        </h1>
+        <h2 className="text-center text-lg text-teal-800">
+          Choose one of styles and cutomize easily to fit your idea.
+        </h2>
+        <div className="mt-8 grid grid-cols-1 h-[600px] sm:h-[800px] md:h-[400px] md:grid-cols-2 gap-8 md:gap-10 ">
+          {demosData.map((demo) => (
+            <div
+              key={demo.id}
+              className="flex h-full w-full justify-center items-center flex-col"
+            >
+              <Link href={demo.link}>
+                <div className="h-full w-full relative rounded-lg overflow-hidden">
+                  <Image
+                    src={demo.imageUrl}
+                    layout="fill"
+                    objectFit="contain"
+                    className="absolute cursor-pointer hover:scale-95 transition ease-in-out duration-200"
+                  />
+                </div>
+              </Link>
+              <h2 className="text-center font-medium text-2xl my-3">
+                {demo.title}
+              </h2>
+              <Link href={demo.link}>
+                <button className="bg-teal-600 m-auto text-white px-5 py-3 rounded-md uppercase hover:bg-teal-500 transition ease-in-out duration-200">
+                  View Demo
+                </button>
+              </Link>
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+      {/* END DEMOS */}
+    </div>
   )
 }
+
+export default Home

@@ -2,7 +2,7 @@ import React from "react"
 
 function ServiceCard({ icon, title, description }) {
   return (
-    <div className="bg-gradient-to-b from-shade to-primary p-5 border-4 border-primary rounded-lg">
+    <div className="text-skin-base bg-skin-gray p-5 rounded-lg">
       {icon}
       <p className="text-xl font-semibold my-3">{title}</p>
       <p>{description}</p>

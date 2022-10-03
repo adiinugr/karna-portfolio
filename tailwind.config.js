@@ -1,4 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
+const withOpacity = (variableName) => {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`
+    }
+
+    return `rgb(var(${variableName}))`
+  }
+}
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -6,13 +17,29 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: "rgb(var(--primary-color) / <alpha-value>)",
-        shade: "rgb(var(--shade-color) / <alpha-value>)",
-        secondary: "rgb(var(--secondary-color) / <alpha-value>)",
-        dark: "rgb(var(--dark-color) / <alpha-value>)",
-        light: "rgb(var(--light-color) / <alpha-value>)",
-        gray: "rgb(var(--gray-color) / <alpha-value>)"
+      textColor: {
+        skin: {
+          base: withOpacity("--color-text-base"),
+          inverted: withOpacity("--color-text-inverted"),
+          accent: withOpacity("--color-text-accent"),
+          "button-base": withOpacity("--color-text-button-base"),
+          "button-inverted": withOpacity("--color-text-button-inverted")
+        }
+      },
+      backgroundColor: {
+        skin: {
+          base: withOpacity("--color-bg-base"),
+          accent: withOpacity("--color-bg-accent"),
+          gray: withOpacity("--color-bg-gray"),
+          "button-bg-base": withOpacity("--color-button-bg-base"),
+          "button-bg-inverted": withOpacity("--color-button-bg-inverted")
+        }
+      },
+      borderColor: {
+        skin: {
+          base: withOpacity("--color-border-base"),
+          gray: withOpacity("--color-border-gray")
+        }
       }
     },
     transitionProperty: {
